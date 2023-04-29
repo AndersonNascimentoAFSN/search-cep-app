@@ -17,9 +17,9 @@ import { supabase } from "@/lib/supabase"
 
 const createUserFormSchema = z.object({
   user: z.object({
-    // avatar: z.instanceof(FileList).refine(file =>
-    //   file.item(0)!.size <= 5 * 1024 * 1024, 'O arquivo deve ter no máximo 5MB'),
-    avatar: z.any(),
+    avatar: z.instanceof(FileList).refine(file =>
+      file.item(0)!.size <= 5 * 1024 * 1024, 'O arquivo deve ter no máximo 5MB'),
+    // avatar: z.any(),
     name: z.string().nonempty('O nome é obrigatório'),
     email: z.string().nonempty('O e-mail é obrigatório').email('E-mail inválido').refine((email) => {
       return email.endsWith('@meta.com.br')
