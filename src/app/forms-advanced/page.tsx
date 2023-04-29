@@ -107,9 +107,9 @@ export default function FormsAdvanced() {
             {...register('user.avatar')}
           />
 
-          {/* {errors.user?.name?.message && (
+          {errors.user?.name?.message && (
             <span className="text-red-500 text-sm">{errors.user?.avatar?.message}</span>
-          )} */}
+          )}
         </div>
 
         <div className="flex flex-col gap-1">
